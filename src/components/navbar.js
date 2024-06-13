@@ -7,7 +7,9 @@ export default function Navbar() {
 
     function handleLogout(e) {
         e.preventDefault();
-        logout();
+        await logout();
+         navigate("/");
+         window.location.reload();
     }
 
     return (
