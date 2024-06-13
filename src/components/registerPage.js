@@ -20,7 +20,7 @@ function RegisterPage() {
     return (
         <>
             <Navbar />
-            <div className="container my-5 text-center" style={{ width: "21rem" }}>
+            <div className="container my-5 text-center text-light" style={{ width: "21rem" }}>
                 <h3>Hi, register to continue..</h3>
                 <form
                     onSubmit={handleRegister}

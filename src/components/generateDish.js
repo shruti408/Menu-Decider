@@ -46,16 +46,17 @@ function GenerateDish() {
             {/* generate-dish form starts here */}
             <form onSubmit={generateDish}>
                 {/* menus dropdown starts here   */}
-                <div className="container text-center mb-4 ">
-                    <div className="card m-2 p-2 fs-5 text-light bg-secondary">
+                <div className="container text-center d-flex justify-content-center mb-4 ">
+                    <div className="card m-2 p-2 fs-5 text-light bg-secondary col-lg-6 col-md-8 col-9">
                         Welcome to Menu Decider !!
+                    </div>
                     </div>
                     <div className="d-flex justify-content-center m-4">
                         <select className="form-select bg-secondary text-light fs-4 text-center" aria-label="menu" name="menu" style={{ width: "13rem", height: "3.5rem" }}>
                             <MenusDropdown />
                         </select>
                     </div>
-                </div>
+                {/* </div> */}
                 {/* menus dropdown ends here */}
                 {/* dish display card starts here  */}
                 <div className="container d-flex justify-content-center my-4">

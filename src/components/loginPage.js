@@ -19,7 +19,7 @@ function LoginPage() {
     return (
         <>
             <Navbar />
-            <div className="container my-5 text-center" style={{ width: "20rem" }}>
+            <div className="container my-5 text-center text-light" style={{ width: "20rem" }}>
                 <h3>Hi, Login to continue..</h3>
                 <form onSubmit={handleLogin}>
                     <div className="">
