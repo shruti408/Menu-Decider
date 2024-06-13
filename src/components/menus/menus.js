@@ -37,7 +37,7 @@ export default function Menus() {
             {/* add button starts here */}
             <AddMenu />
             {/* add button ends here  */}
-            <div className="container text-center mt-1 mb-3 text-light fs-2">
+            <div className="container text-center mb-2 text-light fs-2">
                 Menus
             </div>
             {/* menus list starts here  */}

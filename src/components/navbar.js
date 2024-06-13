@@ -16,7 +16,7 @@ export default function Navbar() {
                 <ul className="navbar-nav">
                     <li className="nav-item ">
                         <Link to="/" className="nav-link mb-1 active">
-                            <img src="../menu.png" style={{ width: "1.3rem", height: "1.1rem" }} />
+                            <img src="../menu.png" alt="logo" style={{ width: "1.3rem", height: "1.1rem" }} />
                         </Link>
                     </li>
                     <li className="nav-item fs-5">
