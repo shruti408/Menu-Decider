@@ -5,7 +5,7 @@ import UserContext from "./context/usercontext"
 export default function Navbar() {
     const { user, logout } = useContext(UserContext);
 
-    function handleLogout(e) {
+    async function handleLogout(e) {
         e.preventDefault();
         await logout();
          navigate("/");
