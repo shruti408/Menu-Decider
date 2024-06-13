@@ -1,17 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MenusProvider from "./components/context/menusContextProvider.js";
+import MenuProvider from "./components/context/menuContextProvider.js";
+import Menus from './components/menus/menus.js';
+import UserProvider from './components/context/user';
+import App from "./App";
+import RegisterPage from './components/registerPage';
+import LoginPage from './components/loginPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* routes start here  */}
+    <BrowserRouter>
+    <MenusProvider>
+    <MenuProvider>
+    <UserProvider>
+      {/* context provider starts here  */}
+      <Routes>
+        {/* homepage route starts here  */}
+        <Route path="/" element={<App />} />
+        {/* homepage route ends here  */}
+        {/* menus route starts here  */}
+        <Route path="/menus" element={<Menus />} />
+        {/* menus route ends here  */}
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+      
+      </UserProvider>
+      </MenuProvider>
+      </MenusProvider>
+      {/* context provider ends here */}
+    </BrowserRouter>
+    {/* routes end here  */}
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// routes banate h 

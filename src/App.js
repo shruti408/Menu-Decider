@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect } from "react";
+import Navbar from "./components/navbar";
+import GenerateDish from "./components/generateDish";
+import UserContext from "./components/context/usercontext";
+import MenusContext from "./components/context/menusContext";
+import MenuContext from "./components/context/menuContext";
 
-function App() {
+export default function App() {
+  const { user } = useContext(UserContext);
+  const { initMenusLocalStorage, initMenus } = useContext(MenusContext);
+  const { initMenuLocalStorage, initMenu } = useContext(MenuContext);
+
+  // fetching data 
+  useEffect(() => {
+    async function fetchData() {
+      if (user) {
+        try {
+          await initMenus(user.$id);
+          await initMenu(user.$id);
+        }
+        catch (error) {
+          console.error('Error fetching data:', error);
+        }
+        return;
+      }
+      // initMenusLocalStorage();
+      // initMenuLocalStorage();
+    }
+    fetchData();
+  }, [user])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <div className="container">
+        {/* generate-dish component starts here */}
+        <GenerateDish />
+        {/* generate-dish component ends here */}
+      </div>
+    </>
   );
 }
 
-export default App;
