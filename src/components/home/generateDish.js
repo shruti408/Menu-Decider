@@ -77,7 +77,7 @@ function GenerateDish() {
                         className="card-link btn btn-success fs-5"
                         style={{ width: "17rem", height: "3rem" }}
                     >
-                        generate dish
+                        select any-one
                     </button>
                 </div>
                 {/* generate-dish-button ends here */}
