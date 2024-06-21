@@ -28,7 +28,7 @@ export default function MenuList() {
 
     return (
         <>
-            <div className="container ms-5">
+            <div className="container ms-2">
 
                 {/* menus list starts here  */}
                 {
