@@ -38,7 +38,7 @@ export default function AddMenu() {
         <>
             {/* add-menu starts here  */}
             <div className="container d-flex justify-content-center mb-2 mt-1">
-                <form onSubmit={handleAddButton} className="col-md-8 col-lg-6 col-11">
+                <form onSubmit={handleAddButton} className="col-md-10 col-lg-8 col-12">
                     <div className="input-group">
                         <label htmlFor="addMenu" className="form-label"></label>
                         <input

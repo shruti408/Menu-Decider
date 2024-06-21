@@ -28,19 +28,21 @@ export default function MenuList() {
 
     return (
         <>
-            <div className="container ms-2">
+            {/* <div className="container ms-2"> */}
 
                 {/* menus list starts here  */}
                 {
                     menus.map((menu, i) => {
                         return (
-                            <li className="mb-1 list-group-item col-11 col-lg-6 col-md-8" key={i}>
+                            <div className="container d-flex justify-content-center">
+
+                            <li className="mb-1 list-group-item col-12 col-lg-8 col-md-10" key={i}>
                                 {/* Menu list item starts here */}
                                 <div className="accordion">
                                     <div className="accordion-item">
                                         <div className={`accordion-header bg-secondary text-center`} style={{ height: "3.2rem" }}>
                                             <div className="row">
-                                                <div className="col-9">
+                                                <div className="col-md-10 col-9">
                                                     <button
                                                         className={`btn accordian-button fs-4 text-light collapsed col-12`}
                                                         type="button"
@@ -79,12 +81,12 @@ export default function MenuList() {
                                     {/* Menu list item ends here */}
                                 </div>
                             </li>
-                            // </div>
+                            </div>
                         );
                     }
                     )}
                 {/* menus list ends here  */}
-            </div>
+            {/* </div> */}
         </>
     );
 }
