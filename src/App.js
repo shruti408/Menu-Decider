@@ -10,11 +10,15 @@ import LoginPage from "./components/loginPage";
 export default function App() {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
-  const { initMenus } = useContext(MenusContext);
+  const { menus, initMenus } = useContext(MenusContext);
   const { menu, initMenu } = useContext(MenuContext);
 
   useEffect(() => {
     if (user && menu.length === 0) {
+      if(menus.length === 0 ){
+        alert ("please add a list first")
+      }
+      alert ("please add itmes to the list first")
       navigate("/menus");
     }
   }, [])
