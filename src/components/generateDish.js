@@ -48,7 +48,7 @@ function GenerateDish() {
                 {/* menus dropdown starts here   */}
                 <div className="container text-center d-flex justify-content-center mb-4 ">
                     <div className="card m-2 p-2 fs-5 text-light bg-secondary col-lg-6 col-md-8 col-9">
-                        Welcome to Menu Decider !!
+                        Welcome to selector.com !!
                     </div>
                     </div>
                     <div className="d-flex justify-content-center m-4">

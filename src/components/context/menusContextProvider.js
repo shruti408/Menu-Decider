@@ -18,6 +18,7 @@ export default function MenusProvider({ children }) {
             [Query.equal("userId", userID)]
         );
         setMenus(response.documents);
+        return response.documents;
     }
 
     async function add(menus_item) {

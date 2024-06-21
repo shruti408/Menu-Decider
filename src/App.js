@@ -1,17 +1,27 @@
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "./components/navbar";
 import GenerateDish from "./components/generateDish";
 import UserContext from "./components/context/usercontext";
 import MenusContext from "./components/context/menusContext";
 import MenuContext from "./components/context/menuContext";
+import LoginPage from "./components/loginPage";
 
 export default function App() {
+  const navigate = useNavigate();
   const { user } = useContext(UserContext);
-  const { initMenusLocalStorage, initMenus } = useContext(MenusContext);
-  const { initMenuLocalStorage, initMenu } = useContext(MenuContext);
+  const { initMenus } = useContext(MenusContext);
+  const { menu, initMenu } = useContext(MenuContext);
+
+  useEffect(() => {
+    if (user && menu.length === 0) {
+      navigate("/menus");
+    }
+  }, [])
 
   // fetching data 
   useEffect(() => {
+
     async function fetchData() {
       if (user) {
         try {
@@ -21,22 +31,22 @@ export default function App() {
         catch (error) {
           console.error('Error fetching data:', error);
         }
-        return;
       }
-      // initMenusLocalStorage();
-      // initMenuLocalStorage();
     }
     fetchData();
+
   }, [user])
 
   return (
     <>
-      <Navbar />
-      <div className="container">
-        {/* generate-dish component starts here */}
-        <GenerateDish />
-        {/* generate-dish component ends here */}
-      </div>
+      {user ? (
+        <>
+          <Navbar />
+          <div className="container">
+            <GenerateDish />
+          </div>
+        </>
+      ) : (<><LoginPage /></>)}
     </>
   );
 }

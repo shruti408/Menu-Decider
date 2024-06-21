@@ -41,7 +41,7 @@ export default function Menu({ category }) {
                                     <span className="col-1 fs-5">*</span>
                                     {/* menu list number ends here */}
                                     {/* menu title starts here */}
-                                    <span className="col-9 fs-5">{dish.title}</span>
+                                    <span className="col-8 fs-5">{dish.title}</span>
                                     {/* menu title starts here */}
                                     {/* menu delete button starts here */}
                                     <span className="col-1 mt-1">

@@ -26,8 +26,7 @@ root.render(
         <Route path="/menus" element={<Menus />} />
         {/* menus route ends here  */}
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
+    </Routes>
       
       </UserProvider>
       </MenuProvider>

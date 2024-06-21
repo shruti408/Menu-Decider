@@ -8,8 +8,8 @@ export default function Navbar() {
     async function handleLogout(e) {
         e.preventDefault();
         await logout();
-         navigate("/");
-         window.location.reload();
+        //  navigate("/");
+        window.location.reload();
     }
 
     return (

@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import UserContext from "./context/usercontext";
-import Navbar from "./navbar";
 
 function RegisterPage() {
     const navigate = useNavigate();
@@ -19,7 +18,6 @@ function RegisterPage() {
 
     return (
         <>
-            <Navbar />
             <div className="container my-5 text-center text-light" style={{ width: "21rem" }}>
                 <h3>Hi, register to continue..</h3>
                 <form
@@ -54,7 +52,6 @@ function RegisterPage() {
                             value={password}
                         />
                     </div>
-                    {/* <div><Link to="/register" className="mt-2 text-primary">Forgot password?</Link></div> */}
                     <div className="text-center">
                         <button type="submit" className="btn btn-danger my-2" style={{ width: "13rem" }}>
                             Register
@@ -65,7 +62,7 @@ function RegisterPage() {
                             <div className="text-center text-light mt-4">
                     Already have an account?
                     <div className=" container" style={{ width: "14rem" }}>
-                        <Link to="/login" className="p-2 btn btn-primary nav-link active my-2">
+                        <Link to="/" className="p-2 btn btn-primary nav-link active my-2">
                             Login
                         </Link>
                     </div>

@@ -9,41 +9,37 @@ import MenuContext from "../context/menuContext";
 export default function Menus() {
     const { user } = useContext(UserContext);
 
-    const { initMenusLocalStorage, initMenus } = useContext(MenusContext);
-    const { initMenuLocalStorage, initMenu } = useContext(MenuContext);
+    const { menus, initMenus } = useContext(MenusContext);
+    const { initMenu } = useContext(MenuContext);
 
-    // fetching data 
+    // fetching data
     useEffect(() => {
         async function fetchData() {
             if (user) {
                 try {
                     await initMenus(user.$id);
                     await initMenu(user.$id);
-                }
-                catch (error) {
-                    console.error('Error fetching data:', error);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
                 }
                 return;
             }
-            // initMenusLocalStorage();
-            // initMenuLocalStorage();
         }
         fetchData();
-    }, [user])
+    }, [user]);
 
     return (
         <>
             <Navbar />
-            {/* add button starts here */}
             <AddMenu />
-            {/* add button ends here  */}
-            <div className="container text-center mb-2 text-light fs-2">
-                Menus
-            </div>
-            {/* menus list starts here  */}
+            {menus.length !== 0 ? (
+                <>
+                    <div className="container text-center mb-2 text-light fs-2">
+                        Menus
+                    </div>
+                </>
+            ) : (<> </>)}
             <MenuList />
-            {/* menus list ends here  */}
         </>
     );
 }
-
