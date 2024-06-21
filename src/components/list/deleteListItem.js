@@ -1,15 +1,15 @@
 import { useContext } from "react";
-import MenuContext from "../../context/menuContext";
-import UserContext from "../../context/usercontext";
+import ListContext from "../../context/list/listContext";
+import UserContext from "../../context/user/usercontext";
 
-export default function DeleteListItem({ dish}) {
-    const { removeDishes } = useContext(MenuContext);
+export default function DeleteListItem({ item}) {
+    const { removeListItem } = useContext(ListContext);
     const { user } = useContext(UserContext);
 
-    function deleteDish(){
+    function deleteItem(){
 
-    if(user.$id === dish.userId)
-        removeDishes(dish.$id, user.$id);
+    if(user.$id === item.userId)
+        removeListItem(item.$id, user.$id);
     }
 
     return (
@@ -17,7 +17,7 @@ export default function DeleteListItem({ dish}) {
             {/* delete button starts here  */}
             <button
                 className="btn btn-secondary text-dark"
-                onClick={deleteDish}
+                onClick={deleteItem}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

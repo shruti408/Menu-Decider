@@ -1,37 +1,37 @@
 import { useContext } from "react";
-import MenusContext from "../../context/menusContext";
-import MenuContext from "../../context/menuContext";
-import UserContext from "../../context/usercontext";
+import ListsContext from "../../context/lists/listsContext";
+import ListContext from "../../context/list/listContext";
+import UserContext from "../../context/user/usercontext";
 
-export default function DeleteButton({ menusItem }) {
-  let { menus, remove } = useContext(MenusContext);
-  let { menu, removeDishes } = useContext(MenuContext);
+export default function DeleteButton({ listsItem }) {
+  let { lists, remove } = useContext(ListsContext);
+  let { list, removeListItem } = useContext(ListContext);
   const { user } = useContext(UserContext);
 
   function handleDelete() {
-    if(!menus || !user){
+    if(!lists || !user){
       return; 
     }
   
-    // deleting menu from menus
-    if (user.$id === menusItem.userId) {
-      remove(menusItem.$id, user.$id);
+    // deleting list from lists
+    if (user.$id === listsItem.userId) {
+      remove(listsItem.$id, user.$id);
     }
-    // deleting all sub-menus 
-    let copyMenu = [];
-    if (menu.length !== 0) {
-      for (let j = 0; j < menu.length; j++) {
+    // deleting all sub-lists 
+    let copylist = [];
+    if (list.length !== 0) {
+      for (let j = 0; j < list.length; j++) {
         if (
-          menu[j].category === menusItem.title &&
-          menu[j].userId === user.$id
+          list[j].category === listsItem.title &&
+          list[j].userId === user.$id
         ) {
-          copyMenu = [...copyMenu, menu[j].$id];
+          copylist = [...copylist, list[j].$id];
         }
       }
     }
-    if (copyMenu.length !== 0) {
-      for (let j = 0; j < copyMenu.length; j++) {
-        removeDishes(copyMenu[j]);
+    if (copylist.length !== 0) {
+      for (let j = 0; j < copylist.length; j++) {
+        removeListItem(copylist[j]);
       }
     }
   }

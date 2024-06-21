@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useContext } from "react";
-import UserContext from "../context/usercontext"
+import UserContext from "../../context/user/usercontext"
 
 export default function Navbar() {
     const navigate = useNavigate();
@@ -40,7 +40,7 @@ export default function Navbar() {
                                     <button className="btn btn-success nav-link active" onClick={handleLogout}>Logout</button>
                                 </li>
                             </>
-                        ) : ( <></> )}
+                        ) : (<></>)}
                     </ul>
                 </div>
             </nav>

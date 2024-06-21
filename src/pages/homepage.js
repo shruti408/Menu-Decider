@@ -1,17 +1,17 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/navbar";
-import GenerateDish from "../components/home/generateDish";
-import UserContext from "../context/usercontext";
-import MenusContext from "../context/menusContext";
-import MenuContext from "../context/menuContext";
-import LoginPage from "./loginPage";
+import UserContext from "../context/user/usercontext";
+import ListsContext from "../context/lists/listsContext";
+import ListContext from "../context/list/listContext";
+import Navbar from "../components/home/navbar";
+import Selector from "../components/home/selector";
+import GoogleLogin from "../components/home/googleLogin";
 
 export default function Homepage() {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
-  const { menus, initMenus } = useContext(MenusContext);
-  const { menu, initMenu } = useContext(MenuContext);
+  const { initLists } = useContext(ListsContext);
+  const { list, initList } = useContext(ListContext);
 
   // fetching data 
   useEffect(() => {
@@ -19,8 +19,8 @@ export default function Homepage() {
     async function fetchData() {
       if (user) {
         try {
-          await initMenus(user.$id);
-          await initMenu(user.$id);
+          await initLists(user.$id);
+          await initList(user.$id)
         }
         catch (error) {
           console.error('Error fetching data:', error);
@@ -34,15 +34,15 @@ export default function Homepage() {
   return (
     <>
       {user ? (
-        (menu.length === 0) ? (navigate("/lists")) : (
+        (list.length === 0) ? (navigate("/lists")) : (
         <>
           <Navbar />
           <div className="container">
-            <GenerateDish />
+            <Selector />
           </div>
         </>
         )
-      ) : (<><LoginPage /></>)}
+      ) : (<><GoogleLogin /> </>)}
     </>
   );
 }

@@ -1,37 +1,37 @@
 import { useState, useContext } from "react";
-import MenusContext from "../../context/menusContext";
-import UserContext from "../../context/usercontext";
+import ListsContext from "../../context/lists/listsContext";
+import UserContext from "../../context/user/usercontext";
 
 export default function AddNewList() {
-    let [newMenu, setNewMenu] = useState("");
-    const { menus, add } = useContext(MenusContext);
+    let [newList, setNewList] = useState("");
+    const { lists, add } = useContext(ListsContext);
     const {user} = useContext(UserContext);
 
     function handleAddButton(e) {
         e.preventDefault();
 
         // menu input empty case
-        if (newMenu === "") {
+        if (newList === "") {
             return;
         }
 
-        // menus null case
-        if (!menus) {
-            add({userId: user.$id, title: newMenu});
-            setNewMenu("");
+        // lists null case
+        if (!lists) {
+            add({userId: user.$id, title: newList});
+            setNewList("");
             return;
         }
 
-        for (var j = 0; j < menus.length; j++) {
-            if (menus[j].title === newMenu && menus[j].userId === user.$id ) {
-                setNewMenu("");
+        for (var j = 0; j < lists.length; j++) {
+            if (lists[j].title === newList && lists[j].userId === user.$id ) {
+                setNewList("");
                 alert("already present, add another");
                 return;
             }
         }
 
-        add({userId: user.$id, title: newMenu});
-        setNewMenu("");
+        add({userId: user.$id, title: newList});
+        setNewList("");
     }
 
     return (
@@ -47,8 +47,8 @@ export default function AddNewList() {
                             placeholder="eg. breakfast, lunch, clothes"
                             id="addMenu"
                             aria-describedby="addMenu"
-                            onChange={(e) => setNewMenu(e.target.value)}
-                            value={newMenu}
+                            onChange={(e) => setNewList(e.target.value)}
+                            value={newList}
                         />
                         <button type="submit" className="btn btn-dark">
                             Add

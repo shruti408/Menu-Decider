@@ -1,46 +1,41 @@
 import { useState } from "react";
-import MenusContext from './menusContext.js'
-import { databases } from "./appwrite";
+import ListsContext from './listsContext.js'
+import { databases } from "../appwrite.js";
 import { ID, Query } from "appwrite";
 
-export default function MenusProvider({ children }) {
-    const [menus, setMenus] = useState([]);
+export default function ListsProvider({ children }) {
+    const [lists, setLists] = useState([]);
 
-    function initMenusLocalStorage() {
-        const menusList = JSON.parse(localStorage.getItem("menus"));
-        setMenus(menusList);
-    }
-
-    async function initMenus(userID) {
+    async function initLists(userID) {
         const response = await databases.listDocuments(
             process.env.REACT_APP_APPWRITE_DATABASE_ID,
             process.env.REACT_APP_CATEGORY_COLLECTION_ID,
             [Query.equal("userId", userID)]
         );
-        setMenus(response.documents);
+        setLists(response.documents);
         return response.documents;
     }
 
-    async function add(menus_item) {
+    async function add(lists_item) {
         await databases.createDocument(
             process.env.REACT_APP_APPWRITE_DATABASE_ID,
             process.env.REACT_APP_CATEGORY_COLLECTION_ID,
             ID.unique(),
-            menus_item
+            lists_item
         );
-        await initMenus(menus_item.userId);
+        await initLists(lists_item.userId);
     }
 
     async function remove(id, userID) {
         await databases.deleteDocument(process.env.REACT_APP_APPWRITE_DATABASE_ID, process.env.REACT_APP_CATEGORY_COLLECTION_ID, id);
-        setMenus((menus) => menus.filter((menu) => menu.$id !== id));
-        await initMenus(userID);
+        setLists((lists) => lists.filter((list) => list.$id !== id));
+        await initLists(userID);
     }
 
     return (
-        <MenusContext.Provider value={{ menus, setMenus, initMenusLocalStorage, initMenus, add, remove }}>
+        <ListsContext.Provider value={{ lists, setLists, initLists, add, remove }}>
             {children}
-        </MenusContext.Provider>
+        </ListsContext.Provider>
     );
 }
 
