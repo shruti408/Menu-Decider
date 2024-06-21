@@ -32,15 +32,15 @@ export default function Menus() {
         <>
             <Navbar />
             <AddMenu />
-            {menus.length !== 0 ? (
-                <>
+            {(menus.length !== 0) ? (
+                <> 
                     <div className="container text-center mb-2 text-light fs-2">
                         Menus
                     </div>
                     <MenuList />
-                    (menu.length === 0) ? (<> <div className="text-light text-center">Please add a list-item first </div></> )
                 </>
             ) : (<> <div className="text-light text-center">Please add a list first </div></>)}
+            {(menus.length !== 0 && menu.length === 0 )? (<><div className="text-light text-center mt-2">Please add a list-item first </div> </> ) : (<> </>)}
         </>
     );
 }
