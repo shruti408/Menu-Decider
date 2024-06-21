@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useContext } from "react";
-import UserContext from "./context/usercontext"
+import UserContext from "../context/usercontext"
 
 export default function Navbar() {
+    const navigate = useNavigate();
     const { user, logout } = useContext(UserContext);
 
     async function handleLogout(e) {
         e.preventDefault();
         await logout();
-        //  navigate("/");
+        navigate("/");
         window.location.reload();
     }
 
@@ -16,13 +17,16 @@ export default function Navbar() {
         <>
             <nav className="navbar navbar-expand navbar-dark bg-dark">
                 <ul className="navbar-nav">
-                    <li className="nav-item ">
-                        <Link to="/" className="nav-link mb-1 active">
-                            <img src="../menu.png" alt="logo" style={{ width: "1.3rem", height: "1.1rem" }} />
+                    <li className="nav-item">
+                        <Link to="/" className="nav-link">
+                            <img src="../menu.png" className="mb-1" alt="logo" style={{ width: "1.3rem", height: "1.1rem" }} />
                         </Link>
                     </li>
-                    <li className="nav-item fs-5">
-                        <Link to="/menus" className="nav-link active">Menus</Link>
+                    <li className="nav-item">
+                        <Link to="/" className="nav-link active">home</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/lists" className="nav-link active">lists</Link>
                     </li>
                 </ul>
                 <div className="container m-0 d-flex justify-content-end">
@@ -36,18 +40,7 @@ export default function Navbar() {
                                     <button className="btn btn-success nav-link active" onClick={handleLogout}>Logout</button>
                                 </li>
                             </>
-                        ) : (
-
-                            <>
-                                <li className="nav-item me-2 mt-1">
-                                    <Link to="/register" className="btn btn-danger nav-link active">Register</Link>
-                                </li>
-                                <li className="nav-item mt-1">
-                                    <Link to="/login" className="btn btn-primary nav-link active">Login</Link>
-                                </li>
-                            </>
-                        )}
-
+                        ) : ( <></> )}
                     </ul>
                 </div>
             </nav>

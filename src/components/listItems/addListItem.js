@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
-import MenuContext from "../context/menuContext";
-import UserContext from "../context/usercontext";
+import MenuContext from "../../context/menuContext";
+import UserContext from "../../context/usercontext";
 
-export default function AddDish({ category}) {
+export default function AddListItem({ category}) {
     const [dish, setDish] = useState("");
     const { menu, add } = useContext(MenuContext);
     const {user} = useContext(UserContext);

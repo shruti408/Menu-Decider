@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import MenusContext from "../context/menusContext";
-import MenuContext from "../context/menuContext";
-import UserContext from "../context/usercontext";
+import MenusContext from "../../context/menusContext";
+import MenuContext from "../../context/menuContext";
+import UserContext from "../../context/usercontext";
 
 export default function DeleteButton({ menusItem }) {
   let { menus, remove } = useContext(MenusContext);

@@ -1,7 +1,6 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import UserContext from "./context/usercontext";
-import Navbar from "./navbar";
+import UserContext from "../context/usercontext";
 
 function LoginPage() {
     const navigate = useNavigate();
@@ -18,7 +17,6 @@ function LoginPage() {
 
     return (
         <>
-            {/* <Navbar /> */}
             <div className="container my-5 text-center text-light" style={{ width: "20rem" }}>
                 <h3>Hi, Login to continue..</h3>
                 <form onSubmit={handleLogin}>
@@ -52,7 +50,6 @@ function LoginPage() {
                             value={password}
                         />
                     </div>
-                    {/* <div><Link to="/register" className="mt-2 text-primary">Forgot password?</Link></div> */}
                     <div className="text-center">
                         <button
                             type="submit"

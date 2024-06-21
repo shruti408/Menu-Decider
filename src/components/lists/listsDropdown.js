@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import MenusContext from "../context/menusContext";
+import MenusContext from "../../context/menusContext";
 
 export default function MenusDropdown() {
     const { menus } = useContext(MenusContext);

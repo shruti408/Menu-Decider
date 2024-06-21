@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import MenuContext from "../context/menuContext";
-import UserContext from "../context/usercontext";
-import DeleteDish from "./deleteDish";
+import MenuContext from "../../context/menuContext";
+import UserContext from "../../context/usercontext";
+import DeleteListItem from "./deleteListItem";
 
-export default function Menu({ category }) {
+export default function ListItems({ category }) {
     const { menu } = useContext(MenuContext);
     const { user } = useContext(UserContext);
 
@@ -45,7 +45,7 @@ export default function Menu({ category }) {
                                     {/* menu title starts here */}
                                     {/* menu delete button starts here */}
                                     <div className="col-1 col-lg-2 col-md-2 mt-1">
-                                        <DeleteDish dish={dish} />
+                                        <DeleteListItem dish={dish} />
                                     </div>
                                     {/* menu delete button ends here  */}
                                 </div>

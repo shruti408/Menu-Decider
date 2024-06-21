@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./components/navbar";
-import GenerateDish from "./components/generateDish";
-import UserContext from "./components/context/usercontext";
-import MenusContext from "./components/context/menusContext";
-import MenuContext from "./components/context/menuContext";
-import LoginPage from "./components/loginPage";
+import Navbar from "../components/navbar";
+import GenerateDish from "../components/home/generateDish";
+import UserContext from "../context/usercontext";
+import MenusContext from "../context/menusContext";
+import MenuContext from "../context/menuContext";
+import LoginPage from "./loginPage";
 
-export default function App() {
+export default function Homepage() {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const { menus, initMenus } = useContext(MenusContext);
@@ -34,7 +34,7 @@ export default function App() {
   return (
     <>
       {user ? (
-        (menu.length === 0) ? (navigate("/menus")) : (
+        (menu.length === 0) ? (navigate("/lists")) : (
         <>
           <Navbar />
           <div className="container">

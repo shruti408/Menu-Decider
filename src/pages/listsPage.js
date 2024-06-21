@@ -1,10 +1,11 @@
 import { useContext, useEffect } from "react";
-import Navbar from "../navbar.js";
-import AddMenu from "./addMenu.js";
-import MenuList from "./menuList.js";
-import UserContext from "../context/usercontext";
-import MenusContext from "../context/menusContext";
-import MenuContext from "../context/menuContext";
+import UserContext from "../context/usercontext.js";
+import MenusContext from "../context/menusContext.js";
+import MenuContext from "../context/menuContext.js";
+import Navbar from "../components/navbar.js";
+import AddNewList from "../components/lists/addNewList.js";
+import Lists from "../components/lists/lists.js";
+
 
 export default function Menus() {
     const { user } = useContext(UserContext);
@@ -31,13 +32,12 @@ export default function Menus() {
     return (
         <>
             <Navbar />
-            <AddMenu />
+            <AddNewList />
             {(menus.length !== 0) ? (
                 <> 
-                    <div className="container text-center mb-2 text-light fs-2">
-                        Menus
+                    <div className="container text-center mb-2 text-light fs-2">     
                     </div>
-                    <MenuList />
+                    <Lists />
                 </>
             ) : (<> <div className="text-light text-center">Please add a list first </div></>)}
             {(menus.length !== 0 && menu.length === 0 )? (<><div className="text-light text-center mt-2">Please add a list-item first </div> </> ) : (<> </>)}

@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
-import UserContext from "./context/usercontext";
+import UserContext from "../context/usercontext";
 
 function RegisterPage() {
     const navigate = useNavigate();

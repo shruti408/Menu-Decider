@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
-import MenuContext from "./context/menuContext";
-import MenusDropdown from "./menus/menusDropdown";
-import UserContext from "./context/usercontext";
+import MenuContext from "../../context/menuContext";
+import MenusDropdown from "../lists/listsDropdown";
+import UserContext from "../../context/usercontext";
 
 function GenerateDish() {
     const [dish, setDish] = useState("");

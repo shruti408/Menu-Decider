@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import MenuContext from "../context/menuContext";
-import UserContext from "../context/usercontext";
+import MenuContext from "../../context/menuContext";
+import UserContext from "../../context/usercontext";
 
-export default function DeleteDish({ dish}) {
+export default function DeleteListItem({ dish}) {
     const { removeDishes } = useContext(MenuContext);
     const { user } = useContext(UserContext);
 

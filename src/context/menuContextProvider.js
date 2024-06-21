@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MenuContext from './menuContext.js'
 import { databases } from "./appwrite.js";
 import { ID, Query } from "appwrite";

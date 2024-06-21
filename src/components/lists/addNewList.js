@@ -1,10 +1,10 @@
-import { useState, useContext, useEffect} from "react";
-import MenusContext from "../context/menusContext";
-import UserContext from "../context/usercontext";
+import { useState, useContext } from "react";
+import MenusContext from "../../context/menusContext";
+import UserContext from "../../context/usercontext";
 
-export default function AddMenu() {
+export default function AddNewList() {
     let [newMenu, setNewMenu] = useState("");
-    const { menus, setMenus, add } = useContext(MenusContext);
+    const { menus, add } = useContext(MenusContext);
     const {user} = useContext(UserContext);
 
     function handleAddButton(e) {
@@ -37,7 +37,7 @@ export default function AddMenu() {
     return (
         <>
             {/* add-menu starts here  */}
-            <div className="container d-flex justify-content-center mb-2 mt-1">
+            <div className="container d-flex justify-content-center mb-3 mt-1">
                 <form onSubmit={handleAddButton} className="col-md-10 col-lg-8 col-12">
                     <div className="input-group">
                         <label htmlFor="addMenu" className="form-label"></label>

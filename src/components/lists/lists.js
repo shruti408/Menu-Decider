@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
-import MenusContext from "../context/menusContext";
+import MenusContext from "../../context/menusContext.js";
 import DeleteButton from "./deleteButton.js";
-import Menu from "../menu/menu.js";
-import AddDish from "../menu/addDish.js";
+import AddListItem from "../listItems/addListItem.js";
+import ListItems from "../listItems/listItems.js";
 
-export default function MenuList() {
+export default function Lists() {
     // array of menus
     const { menus } = useContext(MenusContext);
     const [addBtnDisplay, setAddBtnDisplay] = useState("inline");
@@ -66,8 +66,8 @@ export default function MenuList() {
                                                 }`}
                                         >
                                             <div className="accordion-body bg-dark">
-                                                <AddDish category={menus[i].title} />
-                                                <Menu category={menus[i].title} />
+                                                <AddListItem category={menus[i].title} />
+                                                <ListItems category={menus[i].title} />
                                                 {/* <div className="col d-flex justify-content-center">
                                                     <button type="btn" className={`me-1 btn btn-secondary d-${addBtnDisplay}`}
                                                         onClick={handleAdd}>
