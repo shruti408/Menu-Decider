@@ -10,7 +10,7 @@ export default function Menus() {
     const { user } = useContext(UserContext);
 
     const { menus, initMenus } = useContext(MenusContext);
-    const { initMenu } = useContext(MenuContext);
+    const { menu, initMenu } = useContext(MenuContext);
 
     // fetching data
     useEffect(() => {
@@ -37,9 +37,10 @@ export default function Menus() {
                     <div className="container text-center mb-2 text-light fs-2">
                         Menus
                     </div>
+                    <MenuList />
+                    (menu.length === 0) ? (<> <div className="text-light text-center">Please add a list-item first </div></> )
                 </>
-            ) : (<> </>)}
-            <MenuList />
+            ) : (<> <div className="text-light text-center">Please add a list first </div></>)}
         </>
     );
 }

@@ -44,7 +44,7 @@ export default function AddMenu() {
                         <input
                             type="text"
                             className="form-control bg-secondary"
-                            placeholder="eg. breakfast, lunch, dinner"
+                            placeholder="eg. breakfast, lunch, clothes"
                             id="addMenu"
                             aria-describedby="addMenu"
                             onChange={(e) => setNewMenu(e.target.value)}

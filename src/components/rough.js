@@ -83,6 +83,12 @@
 // console.log("category-Id", process.env.REACT_APP_CATEGORY_COLLECTION_ID);
 // console.log("menuitmes-id", process.env.REACT_APP_MENUITEMS_COLLECTION_ID);
 
+  // useEffect(() => {
+  //   if (user && menu.length === 0) {
+  //     // alert ("please add items to the list first")
+  //     navigate("/menus");
+  //   }
+  // }, [])
 
 // if (menus && user) {
 //     for (let j = 0; j < menus.length; j++) {

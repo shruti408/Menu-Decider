@@ -13,16 +13,6 @@ export default function App() {
   const { menus, initMenus } = useContext(MenusContext);
   const { menu, initMenu } = useContext(MenuContext);
 
-  useEffect(() => {
-    if (user && menu.length === 0) {
-      if(menus.length === 0 ){
-        alert ("please add a list first")
-      }
-      alert ("please add itmes to the list first")
-      navigate("/menus");
-    }
-  }, [])
-
   // fetching data 
   useEffect(() => {
 
@@ -44,12 +34,14 @@ export default function App() {
   return (
     <>
       {user ? (
+        (menu.length === 0) ? (navigate("/menus")) : (
         <>
           <Navbar />
           <div className="container">
             <GenerateDish />
           </div>
         </>
+        )
       ) : (<><LoginPage /></>)}
     </>
   );

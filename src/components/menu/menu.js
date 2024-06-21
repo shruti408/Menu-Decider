@@ -38,15 +38,15 @@ export default function Menu({ category }) {
                             < li className="list-group-item bg-dark text-light" key={i} >
                                 <div className="row">
                                     {/* menu list number starts here */}
-                                    <span className="col-1 fs-5">*</span>
+                                    <div className="col-1 fs-5">*</div>
                                     {/* menu list number ends here */}
                                     {/* menu title starts here */}
-                                    <span className="col-8 fs-5">{dish.title}</span>
+                                    <div className="col-8 col-lg-9 col-md-9 fs-5">{dish.title}</div>
                                     {/* menu title starts here */}
                                     {/* menu delete button starts here */}
-                                    <span className="col-1 mt-1">
+                                    <div className="col-1 col-lg-2 col-md-2 mt-1">
                                         <DeleteDish dish={dish} />
-                                    </span>
+                                    </div>
                                     {/* menu delete button ends here  */}
                                 </div>
                             </li>
