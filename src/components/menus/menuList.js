@@ -28,7 +28,7 @@ export default function MenuList() {
 
     return (
         <>
-            <div className="container d-flex justify-content-center">
+            <div className="container ms-5">
 
                 {/* menus list starts here  */}
                 {
