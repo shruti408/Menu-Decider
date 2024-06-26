@@ -23,7 +23,6 @@ export default function Selector() {
 
         // list null case 
         if (subList.length === 0) {
-            alert("+ add dishes to List first");
             return;
         }
 
