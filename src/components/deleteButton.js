@@ -1,15 +1,19 @@
 import { useContext } from "react";
-import ListContext from "../../context/list/listContext";
-import UserContext from "../../context/user/usercontext";
+import SubListContext from "../context/subList/subListContext";
+import UserContext from "../context/user/usercontext";
 
-export default function DeleteListItem({ item}) {
-    const { removeListItem } = useContext(ListContext);
+export default function DeleteButton(props) {
+    let { deleteSubList } = useContext(SubListContext);
     const { user } = useContext(UserContext);
 
-    function deleteItem(){
+    function handleDelete() {
+        // remove fnc 
+        props.remove(props.item.$id, user.$id);
 
-    if(user.$id === item.userId)
-        removeListItem(item.$id, user.$id);
+        // deleting sub-list 
+        if (props.subList) {
+            deleteSubList(user.$id, props.item);
+        }
     }
 
     return (
@@ -17,7 +21,7 @@ export default function DeleteListItem({ item}) {
             {/* delete button starts here  */}
             <button
                 className="btn btn-secondary text-dark"
-                onClick={deleteItem}
+                onClick={handleDelete}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -1,49 +1,44 @@
 import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import UserContext from "../context/user/usercontext";
-import ListsContext from "../context/lists/listsContext";
 import ListContext from "../context/list/listContext";
-import Navbar from "../components/home/navbar";
-import Selector from "../components/home/selector";
-import GoogleLogin from "../components/home/googleLogin";
+import SubListContext from "../context/subList/subListContext";
+import Selector from "../components/selector";
+import GoogleLogin from "../components/googleLogin";
+import ListPage from "./listpage";
 
 export default function Homepage() {
-  const navigate = useNavigate();
-  const { user } = useContext(UserContext);
-  const { initLists } = useContext(ListsContext);
-  const { list, initList } = useContext(ListContext);
+    const { user } = useContext(UserContext);
+    const { initList } = useContext(ListContext);
+    const { subList, initSubList } = useContext(SubListContext);
 
-  // fetching data 
-  useEffect(() => {
+    // fetching data 
+    useEffect(() => {
 
-    async function fetchData() {
-      if (user) {
-        try {
-          await initLists(user.$id);
-          await initList(user.$id)
+        async function fetchData() {
+            if (user) {
+                try {
+                    await initList(user.$id);
+                    await initSubList(user.$id)
+                }
+                catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+            }
         }
-        catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      }
-    }
-    fetchData();
+        fetchData();
 
-  }, [user])
+    }, [user])
 
-  return (
-    <>
-      {user ? (
-        (list.length === 0) ? (navigate("/lists")) : (
+    return (
         <>
-          <Navbar />
-          <div className="container">
-            <Selector />
-          </div>
+            {user ? (
+                (subList.length === 0) ? (<><ListPage /> </>) : (
+                    <>
+                        <Selector />
+                    </>
+                )
+            ) : (<><GoogleLogin /> </>)}
         </>
-        )
-      ) : (<><GoogleLogin /> </>)}
-    </>
-  );
+    );
 }
 

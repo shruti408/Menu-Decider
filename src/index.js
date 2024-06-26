@@ -1,35 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ListsProvider from "./context/lists/listsContextProvider.js";
-import ListProvider from "./context/list/listContextProvider.js";
+import ListProvider from "./context/list/listProvider.js";
+import SubListProvider from "./context/subList/subListProvider.js";
 import UserProvider from './context/user/user.js';
 import Homepage from "./pages/homepage.js";
-import Lists from './pages/listsPage.js';
+import ListPage from './pages/listpage.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* routes start here  */}
-    <BrowserRouter>
-    <ListsProvider>
+    {/* context provider starts here  */}
     <ListProvider>
-    <UserProvider>
-      {/* context provider starts here  */}
-      <Routes>
-        {/* homepage route starts here  */}
-        <Route path="/" element={<Homepage />} />
-        {/* homepage route ends here  */}
-        {/* menus route starts here  */}
-        <Route path="/lists" element={<Lists />} />
-        {/* menus route ends here  */}
-      </Routes>
-      
-      </UserProvider>
-      </ListProvider>
-      </ListsProvider>
-      {/* context provider ends here */}
-    </BrowserRouter>
-    {/* routes end here  */}
+      <SubListProvider>
+        <UserProvider>
+          {/* routes start here  */}
+          <BrowserRouter>
+            <Routes>
+              {/* homepage route starts here  */}
+              <Route path="/" element={<Homepage />} />
+              {/* homepage route ends here  */}
+              {/* lists route starts here  */}
+              <Route path="/list" element={<ListPage />} />
+              {/* lists route ends here  */}
+            </Routes>
+          </BrowserRouter>
+          {/* routes end here  */}
+        </UserProvider>
+      </SubListProvider>
+    </ListProvider>
+    {/* context provider ends here */}
   </React.StrictMode>
 );

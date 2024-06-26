@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import UserContext from "../../context/user/usercontext";
+import UserContext from "../context/user/usercontext";
 
 export default function GoogleLogin() {
     const { login } = useContext(UserContext);

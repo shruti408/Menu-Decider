@@ -1,20 +1,20 @@
 import { useContext } from "react";
-import ListsContext from "../../context/lists/listsContext";
+import ListContext from "../context/list/listContext";
 
-export default function ListsDropdown() {
-    const { lists } = useContext(ListsContext);
+export default function Dropdown() {
+    const { list } = useContext(ListContext);
     
-    if (!lists) {
+    if (!list) {
         return;
     }
 
     return (
         <>
             {/* lists dropdown list options starts here */}
-            {lists.map((item, i) => {
+            {list.map((item, i) => {
                 return (
-                    <option value={lists[i].title} key={i}>
-                        {lists[i].title}
+                    <option value={list[i].title} key={i}>
+                        {list[i].title}
                     </option>
                 );
             })}

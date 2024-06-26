@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useContext } from "react";
-import UserContext from "../../context/user/usercontext"
+import UserContext from "../context/user/usercontext"
 
 export default function Navbar() {
     const navigate = useNavigate();
@@ -15,21 +15,19 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="navbar navbar-expand navbar-dark bg-dark">
-                <ul className="navbar-nav">
+            <nav className="navbar navbar-expand navbar-dark bg-dark align-items-center">
+                <Link to="/" className="nav-link">
+                    <img src="../menu.png" className="mb-1" alt="logo" style={{ width: "1.3rem", height: "1.1rem" }} />
+                </Link>
+                <ul className="navbar-nav ms-1">
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">
-                            <img src="../menu.png" className="mb-1" alt="logo" style={{ width: "1.3rem", height: "1.1rem" }} />
-                        </Link>
+                        <Link to="/" className="nav-link active">selector</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/" className="nav-link active">home</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/lists" className="nav-link active">lists</Link>
+                        <Link to="/list" className="nav-link active">list</Link>
                     </li>
                 </ul>
-                <div className="container m-0 d-flex justify-content-end">
+                <div className="container d-flex justify-content-end">
                     <ul className="navbar-nav ">
                         {user ? (
                             <>

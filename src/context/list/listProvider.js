@@ -9,30 +9,31 @@ export default function ListProvider({ children }) {
     async function initList(userID) {
         const response = await databases.listDocuments(
             process.env.REACT_APP_APPWRITE_DATABASE_ID,
-            process.env.REACT_APP_MENUITEMS_COLLECTION_ID,
-            [Query.equal("userId", [userID])]
+            process.env.REACT_APP_CATEGORY_COLLECTION_ID,
+            [Query.equal("userId", userID)]
         );
-        setList(response.documents);   
+        setList(response.documents);
+        return response.documents;
     }
 
     async function add(item) {
         await databases.createDocument(
             process.env.REACT_APP_APPWRITE_DATABASE_ID,
-            process.env.REACT_APP_MENUITEMS_COLLECTION_ID,
+            process.env.REACT_APP_CATEGORY_COLLECTION_ID,
             ID.unique(),
             item
         );
         await initList(item.userId);
     }
 
-    async function removelist(id, userID) {
-        await databases.deleteDocument(process.env.REACT_APP_APPWRITE_DATABASE_ID, process.env.REACT_APP_MENUITEMS_COLLECTION_ID, id);
+    async function remove(id, userID) {
+        await databases.deleteDocument(process.env.REACT_APP_APPWRITE_DATABASE_ID, process.env.REACT_APP_CATEGORY_COLLECTION_ID, id);
         setList((list) => list.filter((item) => item.$id !== id));
         await initList(userID);
     }
-    
+
     return (
-        <ListContext.Provider value={{ list, setList, initList, add, removelist }}>
+        <ListContext.Provider value={{ list, setList, initList, add, remove }}>
             {children}
         </ListContext.Provider>
     );
