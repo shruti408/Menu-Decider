@@ -8,7 +8,7 @@ export default function GoogleLogin() {
     }
     return (
         <>
-            <div className="container text-center position-absolute bottom-50">
+            <div class="d-flex align-items-center justify-content-center" style={{height: "33rem"}}>
                 <button className="btn btn-success p-3 fs-4" onClick={handleClick}>
                     Sign In with Google
                 </button>

@@ -10,7 +10,6 @@ export default function Selector() {
     // selecting item with the help of random number and List array
     function selector(e) {
         e.preventDefault();
-        console.log(e.target.List.value)
 
         // lists null case 
         let listItems = [];
