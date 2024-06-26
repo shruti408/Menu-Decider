@@ -1,34 +1,33 @@
 import { useState, useContext } from "react";
 import SubListContext from "../context/subList/subListContext";
 import Dropdown from "./dropdown";
-import UserContext from "../context/user/usercontext";
 import Navbar from "./navbar";
 
 export default function Selector() {
     const [item, setItem] = useState("");
     const { subList } = useContext(SubListContext);
-    const { user } = useContext(UserContext);
 
     // selecting item with the help of random number and List array
     function selector(e) {
         e.preventDefault();
+        console.log(e.target.List.value)
 
         // lists null case 
         let listItems = [];
         for (let i = 0; i < subList.length; i++) {
-            if (subList[i].category === e.target.List.value && user.$id === subList[i].userId) {
+            if (subList[i].category === e.target.List.value) {
                 listItems = [...listItems, subList[i].title];
-            }
+            } 
         }
 
         // list null case 
-        if (subList.length === 0) {
+        if (listItems.length === 0) {
             return;
         }
 
         // random selection 
-        let random_index = Math.floor(Math.random() * subList.length);
-        setItem(subList[random_index]);
+        let random_index = Math.floor(Math.random() * listItems.length);
+        setItem(listItems[random_index]);
     }
 
     return (
