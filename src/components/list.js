@@ -44,9 +44,7 @@ export default function List() {
                                                     {list[i].title}
                                                 </button>
                                             </div>
-                                            <div className="col
-                                    
-                                            ">
+                                            <div className="col align-items-end">
                                                 <DeleteButton item={menu} remove={remove} subList={subList} color="dark" />
                                             </div>
                                         </div>
