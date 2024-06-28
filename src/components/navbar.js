@@ -30,7 +30,7 @@ export default function Navbar() {
                 <div className="container d-flex justify-content-end">
                     {user ? (
                         <>
-                            <div className="dropdown">
+                            <div className="dropdown mb-1">
                                 <button className="btn dropdown-toggle text-secondary" data-bs-toggle="dropdown" style={{width: "3rem", height: "1.8rem"}}>
                                     <svg className="mb-2" xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
