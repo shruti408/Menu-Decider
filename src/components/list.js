@@ -31,7 +31,7 @@ export default function List() {
                                 <div className="accordion-item">
                                     <div className="accordion-header bg-secondary text-center" style={{ height: "3.2rem" }}>
                                         <div className="row align-items-center">
-                                            <div className="col-8 col-lg-10 col-md-10 col-sm-10">
+                                            <div className="col">
                                                 <button
                                                     className="btn accordian-button fs-4 text-light collapsed col-12"
                                                     type="button"
@@ -44,7 +44,7 @@ export default function List() {
                                                     {list[i].title}
                                                 </button>
                                             </div>
-                                            <div className="col align-items-end">
+                                            <div className="col-3 col-lg-1 col-md-1">
                                                 <DeleteButton item={menu} remove={remove} subList={subList} color="dark" />
                                             </div>
                                         </div>

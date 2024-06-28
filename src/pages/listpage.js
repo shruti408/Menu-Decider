@@ -35,7 +35,7 @@ export default function ListPage() {
             </div>
             {(list.length !== 0) ? (
                 <>
-                    <div className="container text-light fs-2 col-lg-8">
+                    <div className="container fs-2 col-lg-8">
                         <List />
                     </div>
                 </>

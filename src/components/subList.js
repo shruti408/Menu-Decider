@@ -22,17 +22,17 @@ export default function SubList({ category }) {
                             {/* subList-item numbering starts here */}
                             <div className="col-1">{i+1}.</div>
                             {/* subList-item numbering ends here */}
-                            {/* sub-subList title starts here */}
+                            {/* subList title starts here */}
                             <div className="col">{item.title}</div>
-                            {/* sub-subList title starts here */}
-                            {/* sub-subList delete button starts here */}
+                            {/* subList title starts here */}
+                            {/* subList delete button starts here */}
                             <div className="col-1 ">
                                 <DeleteButton item={item} remove={remove} subList={null} color="secondary" />
                             </div>
-                            {/* sub-subList delete button ends here  */}
+                            {/* subList delete button ends here  */}
                         </div>
                     </li>
-                    //  subList-item ends here 
+                    // subList-item ends here 
                 )
             })
             }
