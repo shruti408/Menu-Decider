@@ -12,6 +12,7 @@ export default function Dropdown() {
         <>
             {/* lists dropdown list options starts here */}
             {list.map((item, i) => {
+                // add only if sublist exists 
                 return (
                     <option value={list[i].title} key={i}>
                         {list[i].title}

@@ -31,7 +31,7 @@ export default function ListPage() {
         <>
             <Navbar />
             <div className="container col-lg-8 mb-3 mt-2">
-                <AddForm category={null} list={list} add={add} />
+                <AddForm category={null} list={list} add={add} placeholder_text="eg. breakfast, clothing" />
             </div>
             {(list.length !== 0) ? (
                 <>

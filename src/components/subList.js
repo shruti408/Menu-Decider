@@ -27,7 +27,7 @@ export default function SubList({ category }) {
                             {/* sub-subList title starts here */}
                             {/* sub-subList delete button starts here */}
                             <div className="col-1 ">
-                                <DeleteButton item={item} remove={remove} subList={null} />
+                                <DeleteButton item={item} remove={remove} subList={null} color="secondary" />
                             </div>
                             {/* sub-subList delete button ends here  */}
                         </div>

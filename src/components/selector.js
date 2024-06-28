@@ -21,6 +21,7 @@ export default function Selector() {
 
         // list null case 
         if (listItems.length === 0) {
+            alert("add items to list")
             return;
         }
 

@@ -20,7 +20,7 @@ export default function DeleteButton(props) {
         <>
             {/* delete button starts here  */}
             <button
-                className="btn btn-secondary text-dark"
+                className={`btn text-${props.color}`}
                 onClick={handleDelete}
             >
                 <svg
@@ -35,7 +35,6 @@ export default function DeleteButton(props) {
                 </svg>
             </button>
             {/* delete button ends here  */}
-
         </>
     )
 }

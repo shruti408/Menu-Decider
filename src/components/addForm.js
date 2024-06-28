@@ -8,6 +8,7 @@ export default function AddForm(props) {
     // adding item t0 list 
     async function handleAddButton(e) {
         e.preventDefault();
+        
         //input empty case 
         if (newItem === "") {
             return;
@@ -47,7 +48,7 @@ export default function AddForm(props) {
                     <input
                         type="text"
                         className="form-control bg-secondary"
-                        placeholder="eg. poha, belt"
+                        placeholder={props.placeholder_text}
                         id="addItem"
                         aria-describedby="addItem"
                         onChange={(e) => setNewItem(e.target.value)}

@@ -10,8 +10,8 @@ export default function UserProvider(props) {
         try {
             const loggedIn = account.createOAuth2Session(
                 OAuthProvider.Google, // provider
-                'https://selectorweb.vercel.app/', // redirect here on success
-                'https://selectorweb.vercel.app/', // redirect here on failure
+                'https://selector-app.vercel.app', // redirect here on success
+                'https://selector-app.vercel.app', // redirect here on failure
                 ["profile"] // scopes (optional)
             );
             setUser(loggedIn);

@@ -31,7 +31,7 @@ export default function List() {
                                 <div className="accordion-item">
                                     <div className="accordion-header bg-secondary text-center" style={{ height: "3.2rem" }}>
                                         <div className="row align-items-center">
-                                            <div className="col-10">
+                                            <div className="col-8 col-lg-10 col-md-10 col-sm-10">
                                                 <button
                                                     className="btn accordian-button fs-4 text-light collapsed col-12"
                                                     type="button"
@@ -45,7 +45,7 @@ export default function List() {
                                                 </button>
                                             </div>
                                             <div className="col">
-                                                <DeleteButton item={menu} remove={remove} subList={subList} />
+                                                <DeleteButton item={menu} remove={remove} subList={subList} color="dark" />
                                             </div>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@ export default function List() {
                                             }`}
                                     >
                                         <div className="accordion-body bg-dark">
-                                            <AddForm category={list[i].title} list={subList} add={add} />
+                                            <AddForm category={list[i].title} list={subList} add={add} placeholder_text="eg. poha, belt" />
                                             <SubList category={list[i].title} />
                                         </div>
                                     </div>
